@@ -1,0 +1,20 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: connect4-migrations
+  labels:
+    app: connect4-migrations
+spec:
+  template:
+    spec:
+      containers:
+      - name: connect4-migrations
+        image: ironpeak/connect4-server:{{IMAGE_TAG}}
+        command: ["flask", "db", "upgrade"]
+        envFrom:
+        - configMapRef:
+            name: connect4-server
+        - secretRef:
+            name: connect4-server
+      restartPolicy: Never
+  backoffLimit: 2

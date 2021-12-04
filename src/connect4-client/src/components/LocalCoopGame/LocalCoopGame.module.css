@@ -1,0 +1,6 @@
+.app {
+  display: inline-block;
+  flex-direction: column;
+
+  flex: none;
+}
