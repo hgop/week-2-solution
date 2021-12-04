@@ -7,10 +7,10 @@ metadata:
 spec:
   tls:
   - hosts:
-    - "connect4.dreamteam.hgopteam.com"
+    - "connect4.{{TEAM_NAME}}.hgopteam.com"
     secretName: connect4-tls
   rules:
-  - host: "connect4.dreamteam.hgopteam.com"
+  - host: "connect4.{{TEAM_NAME}}.hgopteam.com"
     http:
       paths:
       - path: /

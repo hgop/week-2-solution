@@ -23,10 +23,10 @@ test_cov:
     pytest --cov=./src/connect4 ./src/tests/unit
 
 test_acceptance:
-    API_URL="https://connect4-server2.acceptance.dreamteam.hgopteam.com" pytest ./src/tests/acceptance
+    API_URL="https://connect4-server.acceptance.{{TEAM_NAME}}.hgopteam.com" pytest ./src/tests/acceptance
 
 test_capacity:
-    API_URL="https://connect4-server.dreamteam.hgopteam.com" pytest -s ./src/tests/capacity/test_parallel.py
+    API_URL="https://connect4-server.{{TEAM_NAME}}.hgopteam.com" pytest -s ./src/tests/capacity/test_parallel.py
 
 start:
 	docker-compose down

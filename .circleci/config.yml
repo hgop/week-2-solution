@@ -8,8 +8,8 @@ executors:
     docker:
     - image: cimg/base:stable
     environment:
-      CONNECT4_CLIENT_IMAGE_NAME: ironpeak/connect4-client
-      CONNECT4_SERVER_IMAGE_NAME: ironpeak/connect4-server
+      CONNECT4_CLIENT_IMAGE_NAME: {{DOCKER_REPOSITORY}}/connect4-client
+      CONNECT4_SERVER_IMAGE_NAME: {{DOCKER_REPOSITORY}}/connect4-server
   python-environment:
     docker:
       - image: cimg/python:3.8
@@ -136,7 +136,7 @@ jobs:
       DATABASE_PASSWORD: connect4
       CONNECT4_SERVER_DATABASE_USERNAME: Y29ubmVjdDQ=
       CONNECT4_SERVER_DATABASE_PASSWORD: Y29ubmVjdDQ=
-      CONNECT4_SERVER_HOST: connect4-server.acceptance.dreamteam.hgopteam.com
+      CONNECT4_SERVER_HOST: connect4-server.acceptance.{{TEAM_NAME}}.hgopteam.com
       CONNECT4_SERVER_REPLICAS: 1
     steps:
     - checkout
@@ -153,7 +153,7 @@ jobs:
     environment:
       PROJECT_DIRECTORY: ./src/connect4-server
       PYTHONPATH: /home/circleci/project/src/connect4-server/src
-      API_URL: "https://connect4-server.acceptance.dreamteam.hgopteam.com/"
+      API_URL: "https://connect4-server.acceptance.{{TEAM_NAME}}.hgopteam.com/"
     steps:
       - checkout
       - run: pip install -r $PROJECT_DIRECTORY/requirements_dev.txt
@@ -167,7 +167,7 @@ jobs:
       DATABASE_PASSWORD: connect4
       CONNECT4_SERVER_DATABASE_USERNAME: Y29ubmVjdDQ=
       CONNECT4_SERVER_DATABASE_PASSWORD: Y29ubmVjdDQ=
-      CONNECT4_SERVER_HOST: connect4-server.capacity.dreamteam.hgopteam.com
+      CONNECT4_SERVER_HOST: connect4-server.capacity.{{TEAM_NAME}}.hgopteam.com
       CONNECT4_SERVER_REPLICAS: 3
     steps:
     - checkout
@@ -184,7 +184,7 @@ jobs:
     environment:
       PROJECT_DIRECTORY: ./src/connect4-server
       PYTHONPATH: /home/circleci/project/src/connect4-server/src
-      API_URL: "https://connect4-server.capacity.dreamteam.hgopteam.com/"
+      API_URL: "https://connect4-server.capacity.{{TEAM_NAME}}.hgopteam.com/"
     steps:
       - checkout
       - run: pip install -r $PROJECT_DIRECTORY/requirements_dev.txt
@@ -194,7 +194,7 @@ jobs:
     docker:
     - image: cimg/base:stable
     environment:
-      CONNECT4_SERVER_HOST: connect4-server.dreamteam.hgopteam.com
+      CONNECT4_SERVER_HOST: connect4-server.{{TEAM_NAME}}.hgopteam.com
       CONNECT4_SERVER_REPLICAS: 2
     steps:
     - checkout

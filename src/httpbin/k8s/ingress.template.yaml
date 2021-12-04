@@ -7,10 +7,10 @@ metadata:
 spec:
   tls:
   - hosts:
-    - "httpbin.dreamteam.hgopteam.com"
+    - "httpbin.{{TEAM_NAME}}.hgopteam.com"
     secretName: httpbin-tls
   rules:
-  - host: "httpbin.dreamteam.hgopteam.com"
+  - host: "httpbin.{{TEAM_NAME}}.hgopteam.com"
     http:
       paths:
       - path: /

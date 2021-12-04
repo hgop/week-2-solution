@@ -15,7 +15,7 @@ spec:
         version: v1
     spec:
       containers:
-      - image: docker.io/ironpeak/connect4-client:{{IMAGE_TAG}}
+      - image: docker.io/{{DOCKER_REPOSITORY}}/connect4-client:{{IMAGE_TAG}}
         imagePullPolicy: Always
         name: connect4-client
         ports:

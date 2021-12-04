@@ -10,4 +10,4 @@ start:
 	docker-compose up --build
 
 ssh-microk8s:
-    ssh -i "~/.aws/keys/dreamteam.pem" ubuntu@dreamteam.hgopteam.com
+    ssh -i "~/.aws/keys/{{TEAM_NAME}}.pem" ubuntu@{{TEAM_NAME}}.hgopteam.com
