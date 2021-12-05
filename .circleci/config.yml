@@ -267,6 +267,7 @@ workflows:
             - main
     - capacity-test:
         requires:
+        - create-capacity-environment
         - acceptance-test
         filters:
           branches:
