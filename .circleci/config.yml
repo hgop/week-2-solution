@@ -8,8 +8,8 @@ executors:
     docker:
     - image: cimg/base:stable
     environment:
-      CONNECT4_CLIENT_IMAGE_NAME: {{DOCKER_REPOSITORY}}/connect4-client
-      CONNECT4_SERVER_IMAGE_NAME: {{DOCKER_REPOSITORY}}/connect4-server
+      CONNECT4_CLIENT_IMAGE_NAME: "{{DOCKER_REPOSITORY}}/connect4-client"
+      CONNECT4_SERVER_IMAGE_NAME: "{{DOCKER_REPOSITORY}}/connect4-server"
   python-environment:
     docker:
       - image: cimg/python:3.8
